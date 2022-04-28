@@ -113,7 +113,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Label fx:id="registrationMessage" alignment="CENTER" layoutY="84.0" prefHeight="17.0" prefWidth="559.0" textFill="#9027c6">
+      <Label fx:id="alertMessage" alignment="CENTER" layoutY="84.0" prefHeight="17.0" prefWidth="559.0" textFill="#9027c6">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

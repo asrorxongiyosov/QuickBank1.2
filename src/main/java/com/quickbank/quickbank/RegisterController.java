@@ -1,8 +1,8 @@
 package com.quickbank.quickbank;
 
-import com.quickbank.quickbank.DatabaseConnection;
+
 import javafx.application.Platform;
-import javafx.beans.Observable;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -53,7 +55,7 @@ public class RegisterController implements Initializable {
 
             branchbox.getPromptText();
             System.out.println(branchbox);
-            String branchbox = String.valueOf(branch_list);
+
             System.out.println();
         }
         @FXML
@@ -68,15 +70,24 @@ public class RegisterController implements Initializable {
 
     @FXML private ComboBox<String> rolebox;
         ObservableList<String> role_list = FXCollections.observableArrayList("Manager","Operator","Customer");
-        public void RoleBoxOnAction(ActionEvent event){
+
+        private void role_value(){
+            switch(rolebox.getSelectionModel().getSelectedItem())
+            {
+                case "Manager":
+
+                    break;
+                case "Operator":
+                    break;
+                case "Customer":
+                    break;
+            }
+        }
 
 
-    }
 
 
-
-
-    @FXML
+        @FXML
         private DatePicker brthdatebox;
         @FXML
         private CheckBox trmsfsbox;
@@ -86,7 +97,7 @@ public class RegisterController implements Initializable {
         @FXML
         private Button closeButton;
         @FXML
-        private Label registrationMessage;
+        private Label alertMessage;
         @FXML
         private PasswordField setPasswordField;
         @FXML
@@ -118,24 +129,46 @@ public class RegisterController implements Initializable {
 
         }
 
-
-
         public void closeButtonOnAction(ActionEvent event){
             Stage stage = (Stage) closeButton.getScene().getWindow();
             stage.close();
             Platform.exit();
         }
 
-        public void registerButtonOnAction(ActionEvent event){
+        public boolean checkUserName() throws SQLException {
+            boolean checker = false;
+            DatabaseConnection connectionNow = new DatabaseConnection();
+            Connection connectDB = connectionNow.getConnection();
+            Statement statement = connectDB.createStatement();
+            String usernameCheck = "SELECT username FROM user";
+            ResultSet resultSet = statement.executeQuery(usernameCheck);
+            while (resultSet.next()){
+                String username = resultSet.getString("username");
 
-            if (setPasswordField.getText().equals(confirmPasswordField.getText())) {
-                registerUser();
-                confirmPasswordLabel.setText("");
-
-
-            } else {
-                confirmPasswordLabel.setText("Password does not match! ");
+                if((usernameTextfield.getText().equals(username))){
+                    checker = true;
+                    break;
+                }
             }
+            return checker;
+        }
+
+        public void registerButtonOnAction(ActionEvent event) throws SQLException {
+//username checker
+
+            if (checkUserName()){
+                alertMessage.setText("Username is already exist");
+            } else{
+                if (setPasswordField.getText().equals(confirmPasswordField.getText())) {
+                    registerUser();
+                    confirmPasswordLabel.setText("");
+                } else {
+                    confirmPasswordLabel.setText("Password does not match! ");
+                }
+            }
+
+
+
 
         }
 
@@ -152,24 +185,45 @@ public class RegisterController implements Initializable {
 
 
             String birth_date = String.valueOf(brthdatebox.getValue());
+            String bank_branch = String.valueOf( branchbox.getValue());
+            String bank_section = String.valueOf(sectionbox.getValue());
             String password = setPasswordField.getText();
 
             LocalDate currentDate = LocalDate.now();
-
-            String insertFields = "INSERT INTO user( firstname, lastname, username, gender,birth_date, password, created_date) VALUES('";
-            String insertValues = firstname + "','" + lastname + "','" + username + "','" + gender +  "','" + birth_date + "','" + password + "','" + currentDate +  "')";
+            int id = 0;
+            switch(rolebox.getSelectionModel().getSelectedItem())
+            {
+                case "Manager":
+                        id = 1;
+                    break;
+                case "Operator":
+                    id = 2;
+                    break;
+                case "Customer":
+                    id = 3;
+                    break;
+            }
+            String insertFields = "INSERT INTO user( firstname, lastname, username, gender,bank_branch,bank_section,birth_date, password, role_id,bank_id,created_date) VALUES('";
+            String insertValues = firstname + "','" + lastname + "','" + username + "','" + gender +  "','" + bank_branch + "','" + bank_section + "','" + birth_date + "','" + password + "','" + String.valueOf(id) + "','" + 1 +"','" + currentDate +  "')";
             String insertToRegister = insertFields + insertValues;
 
             try{
                 Statement statement = connectDB.createStatement();
                 statement.executeUpdate(insertToRegister);
-                registrationMessage.setText("User has been registered successfully!");
+                alertMessage.setText("User has been registered successfully!");
 
             }catch (Exception e){
                 e.printStackTrace();
                 e.getCause();
             }
 
+
+
+        }
+
+        public void deleteUser(){
+            DatabaseConnection connectionNow = new DatabaseConnection();
+            Connection connectDB = connectionNow.getConnection();
 
 
         }

@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -29,7 +30,13 @@ public class ProcessController implements Initializable {
     @FXML
     private Button btnStatistics;
     @FXML
+    private Button btnSettings;
+    @FXML
     private StackPane stackPane;
+    @FXML
+    private Label username;
+
+//    public void setUserName(String userName){username.setText(userName);}
 
 
 
@@ -67,6 +74,9 @@ public class ProcessController implements Initializable {
     public void BtnStatisticsOnAction(ActionEvent event){
         System.out.println("Statistics button working!");
     }
+    public void BtnSettingsOnAction(ActionEvent event){
+        System.out.println("Settings button working!");
+    }
 
 
 
@@ -97,7 +107,7 @@ public class ProcessController implements Initializable {
             } );
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("process.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 559, 733);
+            Scene scene = new Scene(fxmlLoader.load());
             Stage regstage = new Stage();
             regstage.setTitle("Quick Pay");
 

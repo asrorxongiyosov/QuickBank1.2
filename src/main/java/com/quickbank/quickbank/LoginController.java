@@ -12,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
@@ -40,6 +41,9 @@ public class LoginController implements Initializable {
     @FXML
     private Button registerButton;
 
+    @FXML
+    private VBox mainVbox;
+
 
     public void cancelButtonOnAction(ActionEvent event){
         Stage stage = (Stage) cancelButton.getScene().getWindow();
@@ -48,22 +52,17 @@ public class LoginController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle){
-        File brandingFile = new File("images/quickpaylogo.png");
+//        mainVbox.setStyle("-fx-background-image: url(background.jpg)");
+        mainVbox.setStyle("-fx-background-color: #716F81");
     }
 
+
     public void validateLogin() throws IOException {
-        FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("process.fxml"));
-        Scene scene = new Scene(fxmlLoader2.load(), 559, 733);
-        Stage regstage = new Stage();
-        regstage.setResizable(false);
-        regstage.setScene(scene);
-        regstage.show();
-
-
         DatabaseConnection connectionNow = new DatabaseConnection();
         Connection connectDB = connectionNow.getConnection();
-
         String verifyLogin = "SELECT count(1) FROM user WHERE username = '"+ usernameTextField.getText() +"' AND password ='"+ enterPasswordField.getText() + "'";
+
+
 
         try{
             Statement statement = connectDB.createStatement();
@@ -75,6 +74,15 @@ public class LoginController implements Initializable {
                     loginMessageLabel.setText("Congrulations!");
                     Stage stage = (Stage) cancelButton.getScene().getWindow();
                     stage.close();
+                    FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("process.fxml"));
+                    Scene scene = new Scene(fxmlLoader2.load(), 559, 733);
+//                    ProcessController processController = fxmlLoader2.getController();
+//                    processController.setUserName();
+                    Stage regstage = new Stage();
+                    regstage.setMaximized(true);
+                    regstage.setResizable(false);
+                    regstage.setScene(scene);
+                    regstage.show();
                 }else{
                     loginMessageLabel.setText("Invalid Login. Please Try again.");
                 }
@@ -87,6 +95,7 @@ public class LoginController implements Initializable {
         }
 
     }
+
 
     public void validateLogin(ActionEvent event) throws IOException {
 
