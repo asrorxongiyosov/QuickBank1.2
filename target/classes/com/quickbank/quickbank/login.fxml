@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quickbank.quickbank.LoginController">
+   <center>
+      <VBox fx:id="mainVbox" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #7F7C82;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="259.0" fitWidth="276.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/quickpaylogo.png" />
+               </image>
+            </ImageView>
+            <HBox alignment="TOP_CENTER" prefHeight="28.0" prefWidth="520.0" spacing="5.0">
+               <children>
+                  <Label text="Username" textFill="#e1e8eb">
+                     <font>
+                        <Font name="Corbel Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="usernameTextField" prefHeight="52.0" prefWidth="281.0" promptText="Enter a username" style="-fx-background-radius: 20; -fx-focus-color: #352F44; -fx-text-fill: gray;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="27.0" prefWidth="520.0" spacing="5.0">
+               <children>
+                  <Label text="Password" textFill="#e1e8eb">
+                     <font>
+                        <Font name="Corbel Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="enterPasswordField" prefHeight="52.0" prefWidth="286.0" promptText="Enter the password" style="-fx-background-radius: 20; -fx-focus-color: #352F44;">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </PasswordField>
+               </children>
+            </HBox>
+            <Label fx:id="loginMessageLabel" alignment="CENTER" prefHeight="36.0" prefWidth="524.0" textFill="#f87b7b">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#validateLogin" prefHeight="52.0" prefWidth="401.0" style="-fx-background-color: #9127c6; -fx-background-radius: 20;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Corbel" size="25.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="52.0" prefWidth="400.0" style="-fx-background-color: #9127c6; -fx-background-radius: 20;" text="Cancel " textFill="WHITE">
+               <font>
+                  <Font name="Corbel" size="25.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="52.0" prefWidth="396.0" style="-fx-background-color: #9127c6; -fx-background-radius: 20;" text="Registration" textFill="WHITE">
+               <font>
+                  <Font name="Corbel" size="25.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

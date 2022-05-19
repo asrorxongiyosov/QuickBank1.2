@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="731.0" prefWidth="559.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quickbank.quickbank.RegisterController">
+   <children>
+      <Label fx:id="confirmPasswordLabel" alignment="CENTER" layoutX="31.0" layoutY="462.0" prefHeight="17.0" prefWidth="559.0" textFill="#9027c6">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="firstnameTextfield" layoutX="93.0" layoutY="149.0" prefHeight="25.0" prefWidth="400.0" promptText="Firstname" />
+      <Label layoutX="97.0" layoutY="129.0" text="Firstname" textFill="#575757">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="lastnameTextfield" layoutX="93.0" layoutY="195.0" prefHeight="25.0" prefWidth="400.0" promptText="Lastname" />
+      <Label layoutX="97.0" layoutY="175.0" text="Lastname" textFill="#575757">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="96.0" layoutY="221.0" text="Username" textFill="#575757">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usernameTextfield" layoutX="95.0" layoutY="241.0" prefHeight="25.0" prefWidth="400.0" promptText="Username" />
+      <Label layoutX="99.0" layoutY="266.0" text="Choose Your Gender" textFill="#575757">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="genderMale" layoutX="99.0" layoutY="297.0" mnemonicParsing="false" onAction="#actionPerformed" text="Male" textFill="#575757">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="tggender" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="genderFemale" layoutX="219.0" layoutY="297.0" mnemonicParsing="false" onAction="#actionPerformed" text="Female" textFill="#575757" toggleGroup="$tggender">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </RadioButton>
+      <ComboBox fx:id="branchbox" layoutX="97.0" layoutY="344.0" onAction="#BranchboxOnAction" prefHeight="25.0" prefWidth="127.0" />
+      <ComboBox fx:id="sectionbox" layoutX="247.0" layoutY="344.0" onAction="#SectionBoxxOnAction" prefHeight="25.0" prefWidth="127.0" />
+      <ComboBox fx:id="rolebox" layoutX="396.0" layoutY="344.0" prefHeight="25.0" prefWidth="97.0" />
+      <DatePicker fx:id="brthdatebox" layoutX="95.0" layoutY="395.0" />
+      <Label layoutX="97.0" layoutY="420.0" text="Password" textFill="#575757">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="setPasswordField" layoutX="97.0" layoutY="440.0" prefHeight="25.0" prefWidth="400.0" promptText="Password" />
+      <Label layoutX="97.0" layoutY="465.0" text="Confirm Password" textFill="#575757">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="confirmPasswordField" layoutX="97.0" layoutY="485.0" prefHeight="25.0" prefWidth="400.0" promptText="Confim your Password" />
+      <Button fx:id="registerButton" layoutX="97.0" layoutY="580.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="25.0" prefWidth="400.0" style="-fx-background-color: #9027c6;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="closeButton" layoutX="97.0" layoutY="619.0" mnemonicParsing="false" onAction="#closeButtonOnAction" prefHeight="25.0" prefWidth="400.0" style="-fx-background-color: #9027c6;" text="Close" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="99.0" layoutY="324.0" text="Select your Branch" textFill="#575757">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="247.0" layoutY="324.0" text="Select your Section" textFill="#575757">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="96.0" layoutY="376.0" text="Select your Birth Date" textFill="#575757">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="trmsfsbox" layoutX="253.0" layoutY="538.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="115.0" text="Terms of Use">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+      <AnchorPane layoutY="-2.0" prefHeight="73.0" prefWidth="590.0" style="-fx-background-color: #9027c6;">
+         <children>
+            <Label layoutX="199.0" layoutY="17.0" text="Registration" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="shieldImageView" fitHeight="54.0" fitWidth="59.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label fx:id="alertMessage" alignment="CENTER" layoutY="84.0" prefHeight="17.0" prefWidth="559.0" textFill="#9027c6">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="396.0" layoutY="324.0" text="Role" textFill="#575757">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

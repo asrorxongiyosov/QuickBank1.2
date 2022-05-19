@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quickbank.quickbank.AccountController">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User Information">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <HBox prefHeight="280.0" prefWidth="719.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="280.0" prefWidth="288.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your Username:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your Birth Date:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your Bank Branch:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your Bank Section:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your Position:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your Password:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="360.0" prefWidth="341.0">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <TextField fx:id="TextFieldUsername">
+                     <VBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="25.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="TextFieldBirthDate">
+                     <VBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="25.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="TextFieldBankBranch">
+                     <VBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="25.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="TextFieldBankSection">
+                     <VBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="25.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="TextFieldPosition">
+                     <VBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="25.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="TextFieldPassword">
+                     <VBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="25.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#btnedit" prefHeight="30.0" prefWidth="200.0" text="Edit">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="200.0" text="Save">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</VBox>
