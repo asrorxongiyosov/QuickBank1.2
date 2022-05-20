@@ -25,39 +25,16 @@
                </VBox.margin>
             </Label>
             <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="155.0">
-               <children>
-                  <Button fx:id="btnService" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#BtnServiceOnAction" prefHeight="69.0" prefWidth="225.0" style="-fx-background-color: #9127c6;" text="Service" textFill="WHITE">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" />
-                     </HBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fx:id="logoService" cache="true" cacheHint="SPEED" fitHeight="55.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/icons8-service.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="20.0" top="10.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="155.0">
                <children>
-                  <Button fx:id="btnCredit" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#BtnCreditOnAction" prefHeight="69.0" prefWidth="225.0" style="-fx-background-color: #9127c6;" text="Credit" textFill="WHITE">
+                  <Button fx:id="btnCredit" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#BtnCreditOnAction" prefHeight="69.0" prefWidth="225.0" style="-fx-background-color: #9127c6;" text="Loans" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -83,7 +60,7 @@
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="20.0" top="10.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="155.0">
@@ -114,7 +91,7 @@
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="20.0" top="10.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="155.0">
@@ -145,7 +122,7 @@
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="20.0" top="10.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="155.0">
@@ -176,41 +153,16 @@
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="20.0" top="10.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="155.0">
-               <children>
-                  <Button fx:id="btnSettings" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#BtnSettingsOnAction" prefHeight="69.0" prefWidth="225.0" style="-fx-background-color: #9127c6;" text="Settings" textFill="WHITE">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" />
-                     </HBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fx:id="logoStatistics1" fitHeight="48.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/icons8-settings-50.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="20.0" top="10.0" />
                </padding>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="155.0">
                <children>
                   <Button fx:id="btnExit" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#BtnExitOnAction" prefHeight="69.0" prefWidth="225.0" style="-fx-background-color: #9127c6;" text="Exit" textFill="WHITE">
                      <font>
@@ -234,12 +186,6 @@
                      </graphic>
                   </Button>
                </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="10.0" top="10.0" />
-               </padding>
             </HBox>
          </children>
          <BorderPane.margin>

@@ -1,6 +1,7 @@
 package com.quickbank.quickbank;
 
 import com.quickbank.quickbank.DatabaseConnection;
+import com.quickbank.quickbank.database.UserInformation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,6 +27,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -45,6 +47,9 @@ public class LoginController implements Initializable {
     private Button registerButton;
 
     @FXML
+    private Button loginButton;
+
+    @FXML
     private VBox mainVbox;
 
 
@@ -61,58 +66,60 @@ public class LoginController implements Initializable {
 
 
     public void validateLogin() throws IOException {
-        DatabaseConnection connectionNow = new DatabaseConnection();
-        Connection connectDB = connectionNow.getConnection();
-        String verifyLogin = "SELECT count(1) FROM user WHERE username = '"+ usernameTextField.getText() +"' AND password ='"+ enterPasswordField.getText() + "'";
+        DatabaseConnection db = new DatabaseConnection();
+        db.getUserInformation();
 
+        ArrayList<UserInformation> usersInformation = db.getUsersInformation();
 
+        boolean isLogged = true;
 
-        try{
-            Statement statement = connectDB.createStatement();
-            ResultSet queryResult = statement.executeQuery(verifyLogin);
-
-
-            while(queryResult.next()){
-                if(queryResult.getInt(1) == 1){
-                    Stage stage = (Stage) cancelButton.getScene().getWindow();
-                    stage.close();
-                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("process.fxml"));
-                    Parent root = loader.load();
-                    ProcessController control = loader.getController();
-                    control.setAdmin(usernameTextField.getText());
-
-//                    FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("process.fxml"));
-                    Scene scene = new Scene(root, 559, 733);
-//                    ProcessController processController = fxmlLoader2.getController();
-//                    processController.setUserName();
-                    Stage regstage = new Stage();
-                    regstage.setMaximized(true);
-                    regstage.setResizable(false);
-                    regstage.setScene(scene);
-                    regstage.show();
-                }else{
-                    loginMessageLabel.setText("Invalid Login. Please Try again.");
-                }
-
+        for (UserInformation userInformation: usersInformation) {
+            if (usernameTextField.getText().isBlank() || enterPasswordField.getText().isBlank()) {
+                loginMessageLabel.setText("Please enter Username and Password");
             }
+            if (userInformation.getUsername().equals(usernameTextField.getText()) && userInformation.getPassword().equals(enterPasswordField.getText())) {
 
-        }catch(Exception e){
-            e.printStackTrace();
-            e.getCause();
+                if (userInformation.getRole_id() == 1) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("register.fxml"));
+                    Parent root = loader.load();
+
+                    loginButton.getScene().getWindow().hide();
+                    Stage login = new Stage();
+                    Scene scene = new Scene(root);
+                    login.setScene(scene);
+                    login.show();
+                } else if (userInformation.getRole_id() == 2) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("process.fxml"));
+                    Parent root = loader.load();
+
+                    loginButton.getScene().getWindow().hide();
+                    Stage login = new Stage();
+                    Scene scene = new Scene(root);
+                    login.setMaximized(true);
+                    login.setResizable(false);
+                    login.setScene(scene);
+                    login.show();
+                }
+            } else {
+                isLogged = false;
+            }
         }
 
+        if(!isLogged) {
+            loginMessageLabel.setText("You try to login");
+        }
     }
 
 
-    public void validateLogin(ActionEvent event) throws IOException {
-
-        loginMessageLabel.setText("You try to login");
-        if (usernameTextField.getText().isBlank() || enterPasswordField.getText().isBlank()) {
-            loginMessageLabel.setText("Please enter Username and Password");
-        } else {
-            validateLogin();
-        }
-    }
+//    public void validateLogin(ActionEvent event) throws IOException {
+//
+//        loginMessageLabel.setText("You try to login");
+//        if (usernameTextField.getText().isBlank() || enterPasswordField.getText().isBlank()) {
+//            loginMessageLabel.setText("Please enter Username and Password");
+//        } else {
+//            validateLogin();
+//        }
+//    }
 
     public void registerButtonOnAction(){
         try{

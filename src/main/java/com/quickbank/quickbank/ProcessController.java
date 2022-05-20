@@ -71,13 +71,7 @@ public class ProcessController implements Initializable {
 
 
 //    Button Actions
-    public void BtnServiceOnAction(ActionEvent event) throws IOException {
 
-        Parent fxml = FXMLLoader.load(getClass().getResource("service.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
-
-    }
    public void BtnExitOnAction(ActionEvent event){
        Stage stage = (Stage) btnExit.getScene().getWindow();
        stage.close();
@@ -111,24 +105,6 @@ public class ProcessController implements Initializable {
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
-    public void BtnSettingsOnAction(ActionEvent event) throws IOException {
-
-        Parent fxml = FXMLLoader.load(getClass().getResource("settings.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
 
     double x,y;
     public void workStation(Stage primaryStage) throws Exception{

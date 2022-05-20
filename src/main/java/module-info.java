@@ -7,4 +7,6 @@ module com.quickbank.quickbank {
 
     opens com.quickbank.quickbank to javafx.fxml;
     exports com.quickbank.quickbank;
+    exports com.quickbank.quickbank.database;
+    opens com.quickbank.quickbank.database to javafx.fxml;
 }

@@ -92,16 +92,16 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="96.0" layoutY="376.0" text="Select your Birth Date" textFill="#575757">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
       <CheckBox fx:id="trmsfsbox" layoutX="253.0" layoutY="538.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="115.0" text="Terms of Use">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
+      <Label layoutX="96.0" layoutY="376.0" text="Select your Birth Date" textFill="#575757">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
       <AnchorPane layoutY="-2.0" prefHeight="73.0" prefWidth="590.0" style="-fx-background-color: #9027c6;">
          <children>
             <Label layoutX="199.0" layoutY="17.0" text="Registration" textFill="WHITE">
