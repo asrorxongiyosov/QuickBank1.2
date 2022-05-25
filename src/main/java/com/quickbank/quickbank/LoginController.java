@@ -78,11 +78,11 @@ public class LoginController implements Initializable {
                 loginMessageLabel.setText("Please enter Username and Password");
             }
             if (userInformation.getUsername().equals(usernameTextField.getText()) && userInformation.getPassword().equals(enterPasswordField.getText())) {
-
+                String firstname = userInformation.getFirstname();
+                String lastname = userInformation.getLastname();
                 if (userInformation.getRole_id() == 1) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("register.fxml"));
                     Parent root = loader.load();
-
                     loginButton.getScene().getWindow().hide();
                     Stage login = new Stage();
                     Scene scene = new Scene(root);
@@ -91,14 +91,18 @@ public class LoginController implements Initializable {
                 } else if (userInformation.getRole_id() == 2) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("process.fxml"));
                     Parent root = loader.load();
-
                     loginButton.getScene().getWindow().hide();
                     Stage login = new Stage();
                     Scene scene = new Scene(root);
+                    ProcessController processController = loader.getController();
+                    processController.userInfo(firstname,lastname);
+                    processController.setAdmin(usernameTextField.getText());
                     login.setMaximized(true);
                     login.setResizable(false);
+                    login.initStyle(StageStyle.UNDECORATED);
                     login.setScene(scene);
                     login.show();
+
                 }
             } else {
                 isLogged = false;

@@ -15,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.io.IOException;
@@ -171,7 +172,10 @@ public class RegisterController implements Initializable {
 //username checker
             if(trmsfsbox.isSelected()) {
                 if (checkUserName()) {
-                    alertMessage.setText("Username is already exist");
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Warning");
+                    alert.setHeaderText("Username already exist!");
+                    alert.showAndWait();
                 } else {
                     if (setPasswordField.getText().equals(confirmPasswordField.getText())) {
                         registerUser();
@@ -184,13 +188,17 @@ public class RegisterController implements Initializable {
                         FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("process.fxml"));
                         Scene scene = new Scene(fxmlLoader2.load(), 559, 733);
                         Stage dashboard = new Stage();
+                        dashboard.initStyle(StageStyle.UNDECORATED);
                         dashboard.setMaximized(true);
                         dashboard.setResizable(false);
                         dashboard.setScene(scene);
                         dashboard.show();
 
                     } else {
-                        confirmPasswordLabel.setText("Password does not match! ");
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Warning");
+                        alert.setHeaderText("Password does not match!");
+                        alert.showAndWait();
                     }
                 }
             }else{
@@ -231,7 +239,10 @@ public class RegisterController implements Initializable {
             try{
                 Statement statement = connectDB.createStatement();
                 statement.executeUpdate(insertToRegister);
-                alertMessage.setText("User has been registered successfully!");
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Success!");
+                alert.setHeaderText("User has been registered successfully!");
+                alert.showAndWait();
 
             }catch (Exception e){
                 e.printStackTrace();

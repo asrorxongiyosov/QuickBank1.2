@@ -24,14 +24,11 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </Label>
-            <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="155.0">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="20.0" top="10.0" />
-               </padding>
-            </HBox>
+            <Label fx:id="userInfo" prefHeight="32.0" prefWidth="177.0">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
             <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="155.0">
                <children>
                   <Button fx:id="btnCredit" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#BtnCreditOnAction" prefHeight="69.0" prefWidth="225.0" style="-fx-background-color: #9127c6;" text="Loans" textFill="WHITE">
@@ -187,6 +184,32 @@
                   </Button>
                </children>
             </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="155.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <Button fx:id="btnNewUser" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#BtnNewUser" prefHeight="69.0" prefWidth="225.0" style="-fx-background-color: #9127c6;" text="New User" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fx:id="logoAccount1" fitHeight="49.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8-account.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
          <BorderPane.margin>
             <Insets />

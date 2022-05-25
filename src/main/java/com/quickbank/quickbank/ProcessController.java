@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -39,8 +40,20 @@ public class ProcessController implements Initializable {
     @FXML
     private StackPane contentArea;
     @FXML
-    private Label username;
+    public Label userInfo;
     public String admin;
+    @FXML
+    private Button btnNewUser;
+
+    @FXML
+    public void BtnNewUser() throws IOException {
+
+        Parent fxml = FXMLLoader.load(getClass().getResource("newUser.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);
+
+    }
+
 
     public String getAdmin() {
         return admin;
@@ -49,7 +62,7 @@ public class ProcessController implements Initializable {
     public void setAdmin(String admin) {
         this.admin = admin;
     }
-    //    public void setUserName(String userName){username.setText(userName);}
+
 
 
 
@@ -97,6 +110,12 @@ public class ProcessController implements Initializable {
         controlAccount.about(getAdmin());
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(root);
+    }
+
+    public void userInfo(String firstname, String lastname){
+
+        userInfo.setText(firstname + " " + lastname);
+
     }
 
     public void BtnStatisticsOnAction(ActionEvent event) throws IOException {
